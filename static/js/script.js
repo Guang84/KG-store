@@ -1,50 +1,66 @@
-// Function to toggle product information display
-function toggleInfo(infoId) {
-    const infoDiv = document.getElementById(infoId);
-    infoDiv.style.display = infoDiv.style.display === 'none' ? 'block' : 'none';
+function toggleAllImages(button) {
+    const product = button.parentNode;
+    const images = product.querySelectorAll('.gallery-image');
+    images.forEach(img => {
+        img.style.display = img.style.display === 'none' ? 'block' : 'none';
+    });
 }
 
-// Function to toggle all images for a product
-function toggleAllImages(productType) {
-    const imageGallery = document.getElementById(productType + '-image-gallery');
-    const images = imageGallery.getElementsByTagName('img');
-    const isShowingAll = [...images].every(image => image.style.display === 'block');
+function openImageModal(imageElement) {
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalThumbnails = document.getElementById('modal-thumbnails');
 
-    for (let img of images) {
-        img.style.display = isShowingAll ? 'none' : 'block';
-    }
-    
-    const button = document.querySelector(`button[onclick="toggleAllImages('${productType}')"]`);
-    button.innerText = isShowingAll ? 'View All Images' : 'Hide Images';
+    // Show modal
+    modal.style.display = 'flex';
+
+    // Set the clicked image as the main image
+    modalImage.src = imageElement.src;
+
+    // Clear previous thumbnails
+    modalThumbnails.innerHTML = '';
+
+    // Create thumbnails for all images in the same product
+    const productGallery = imageElement.parentNode;
+    const images = productGallery.querySelectorAll('.gallery-image');
+
+    images.forEach(img => {
+        const thumbnail = document.createElement('img');
+        thumbnail.src = img.src;
+        thumbnail.onclick = function() {
+            modalImage.src = img.src; // Update main image on thumbnail click
+        };
+        modalThumbnails.appendChild(thumbnail);
+    });
 }
 
-// Function to show contact information
-// Function to toggle contact information display
-function showContactInfo(infoId) {
-    const contactDiv = document.getElementById(infoId);
-    contactDiv.style.display = contactDiv.style.display === 'none' ? 'block' : 'none';
-}
-
-// Call functions on page load
-window.onload = function() {
-    // You can initialize other parts here if needed
-};
-
-
-// Call functions on page load
-window.onload = function() {
-    toggleInfo('desktop-info'); // Initialize the display
-    toggleInfo('laptop-info'); // Initialize the display
-};
-
-// Function to open the modal
-function openModal(imageSrc) {
-    document.getElementById("image-modal").style.display = "block";
-    document.getElementById("modal-image").src = imageSrc;
-    document.getElementById("caption").innerHTML = imageSrc.split('/').pop(); // Caption as the image name
-}
-
-// Function to close the modal
 function closeModal() {
-    document.getElementById("image-modal").style.display = "none";
+    const modal = document.getElementById('image-modal');
+    modal.style.display = 'none';
 }
+
+function showContactInfo(infoId) {
+    const info = document.getElementById(infoId);
+    info.style.display = info.style.display === 'none' ? 'block' : 'none';
+}
+
+function toggleDetails(detailsId) {
+    const details = document.getElementById(detailsId);
+    details.style.display = details.style.display === 'none' ? 'block' : 'none';
+}
+//read more function
+function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+  
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more"; 
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less"; 
+      moreText.style.display = "inline";
+    }
+  }
