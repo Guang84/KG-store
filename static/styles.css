@@ -1,0 +1,160 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: fantasy;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #28a745;
+    padding: 5px;
+}
+
+.hero {
+    background: #007bff;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.products {
+    padding: 20px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(50% - 20px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.image-gallery img {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn.primary {
+    background: #28a745;
+}
+
+.specs {
+    margin-top: 10px;
+    display: none;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+.modal img {
+    max-width: 100%;
+}
+
+.modal-thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.modal-thumbnails img {
+    width: 50px;
+    height: auto;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-thumbnails img:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 100%;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+ #original{
+    text-decoration: line-through;
+    color: rgb(204, 31, 31);
+ }
+ #git{
+    color: red;
+    padding: 10px;
+    font-family: fantasy;
+}
